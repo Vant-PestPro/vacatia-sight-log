@@ -11,15 +11,15 @@
     body { font-size: 9pt; }
     .page { page-break-after: always; break-after: page; }
     .page:last-child { page-break-after: auto; break-after: auto; }
-    @page { margin: 0.5in; size: letter portrait; }
-    .no-print { display: none; }
+    @page { margin: 0.5in; size: letter portrait; } @page { @bottom-center { content: none; } @top-center { content: none; } }
+    .no-print { display: none; } html { -webkit-print-color-adjust: exact; }
   }
   :root {
     --navy: #1a2557;
     --yellow: #FFB800;
     --accent: #2E95EC;
     --white: #ffffff;
-    --light-gray: #f5f5f5;
+    --light-gray: #fafafa;
     --mid-gray: #999;
   }
   .page { width: 8.5in; min-height: 11in; margin: 0 auto 0.5in auto; padding: 0.5in 0.6in; background: var(--white); }
@@ -86,6 +86,7 @@
   .print-btn-wrap { text-align: center; padding: 24px; background: #efefef; }
   .print-btn { background: var(--navy); color: white; border: none; padding: 12px 32px; font-size: 12pt; font-weight: bold; border-radius: 4px; cursor: pointer; }
   .print-btn:hover { background: #2a3577; }
+  @media print { @page { margin: 0.5in; } body { counter-reset: none; } }
 </style>
 </head>
 <body>
